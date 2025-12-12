@@ -8,12 +8,10 @@ static uint32_t rotl(uint32_t x, int n)
     return (x << n) | (x >> (32 - n));
 }
 
-// Simple ChaCha-like keystream (NOT real ChaCha, but safe for demo)
 std::vector<uint8_t> Encryption::generateKeystream(const std::string &password, size_t length)
 {
     uint32_t state[4];
 
-    // Initialize state from password bytes
     uint32_t seed = 0;
     for (char c : password)
         seed = seed * 131 + c;

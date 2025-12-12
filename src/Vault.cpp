@@ -5,7 +5,7 @@
 #include <sstream>
 
 #ifdef _WIN32
-#include <direct.h> // _mkdir
+#include <direct.h>
 #else
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -16,8 +16,7 @@ static std::string simpleHash(const std::string &key)
 {
     unsigned long hash = 5381;
     for (char c : key)
-        hash = ((hash << 5) + hash) + c; // hash * 33 + c
-
+        hash = ((hash << 5) + hash) + c;
     std::stringstream ss;
     ss << std::hex << hash;
     return ss.str();
